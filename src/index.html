@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEZABUDU App</title>
+</head>
+
+<body>
+    <div id="p_prldr" style="background: #041E36;">
+        <div class="contpre">
+            <span class="contpre__logo">НЕЗАБУДУ</span></br>
+            <span class="svg_anm" style="background: url('pufff.svg') center no-repeat;"></span>
+        </div>
+    </div>
+    <div class="start" style="display: none;">
+
+        <header class="header">
+            <!-- <img src="./img/logo.png" alt="logo" class="header__logo"> -->
+            <p class="header__logo">НЕЗАБУДУ</p>
+        </header>
+        <div class="message">
+            <p class="message__text"></p>
+        </div>
+
+
+
+        <form class="wrapper" id="form">
+
+            <section class="camera">
+                <button id="onBtn" class="camera__btn">Включить камеру</button>
+                <div class="row">
+                    <video id="video" class="camera__window">Video stream not available.</video>
+                    <canvas id="canvas"></canvas>
+                    <img id="photo" class="camera__window" />
+                </div>
+                <div class="row">
+                    <button id="startbutton" class="camera__btn camera__btn--xs">Сделать фото</button>
+                    <button id="clearbutton" class="camera__btn camera__btn--xs red">Удалить фото</button>
+                </div>
+            </section>
+
+
+            <section class="geo">
+                <button id="takeGeo" class="camera__btn">Снять координаты</button>
+                <div class="row">
+                    <div class="info__block">
+                        <label for="latitude">Широта</label>
+                        <input type="text" name="latitude" id="latitude" class="info__geo" placeholder="0" readonly
+                            required>
+                    </div>
+                    <div class="info__block">
+                        <label for="longitude">Долгота</label>
+                        <input type="text" name="longitude" id="longitude" class="info__geo" placeholder="0" readonly
+                            required>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="info">
+                <div class="row">
+                    <div class="info__wrap">
+                        <label class="info__title">Сектор</label>
+                        <input type="number" class="info__text" id="sector" placeholder="XXX" required>
+                    </div>
+                    <div class="info__wrap">
+                        <label class="info__title">Квадрат</label>
+                        <input type="number" class="info__text" id="square" placeholder="XXX" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="info__wrap">
+                        <label class="info__title">Ряд</label>
+                        <input type="number" class="info__text" id="row" placeholder="XXX" required>
+                    </div>
+                    <div class="info__wrap">
+                        <label class="info__title" for="number">Номер захоронения</label>
+                        <input type="number" class="info__text" id="number" placeholder="XXX" required>
+                    </div>
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">* Если семейная количество мест занято</label>
+                    <select name="numberOfPlace" id="numberOfPlace" class="info__text info__text--xl" required>
+                        <option disabled>Выберите из списка</option>
+                        <option value="одинарное">одинарное</option>
+                        <option value="двойное">двойное</option>
+                        <option value="тройное">тройное</option>
+                        <option value="четверное">четверное</option>
+                    </select>
+                    <!-- <input type="text" class="info__text" placeholder="одинарное, двойное, тройное и т.д" required
+                        id="numberOfPlace"> -->
+                </div>
+                <div class="row">
+                    <div class="info__wrap">
+                        <label class="info__title">Фамилия</label>
+                        <input type="text" class="info__text" required id="surname" placeholder="XXX">
+                    </div>
+                    <div class="info__wrap">
+                        <label class="info__title">Имя</label>
+                        <input type="text" class="info__text" required id="name" placeholder="XXX">
+                    </div>
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">Отчество</label>
+                    <input type="text" class="info__text info__text--xl" required id="patronimyc" placeholder="XXX">
+                </div>
+                <div class="row">
+                    <div class="info__wrap">
+                        <label class="info__title">Дата рождения</label>
+                        <input type="date" class="info__text" required id="birth">
+                    </div>
+                    <div class="info__wrap">
+                        <label class="info__title">Дата смерти</label>
+                        <input type="date" class="info__text" required id="die">
+                    </div>
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">Наличие надгробного сооружения,материал</label>
+                    <textarea type="text" class="info__text info__text--xl"
+                        placeholder="Плита,памятник,крест,нет знаков и т.д. Гранит,металл,мрамор и т.д." id="info"
+                        required></textarea>
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">* указанный в книге регистрации захоронений(урн с прахом)</label>
+                    <input type="text" class="info__text info__text--xl" id="number-book" placeholder="XXXXX">
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">* указанный на регистрационном знаке захоронения (если
+                        имеется)</label>
+                    <input type="text" class="info__text info__text--xl" id="number-reg" placeholder="XXXXX">
+                </div>
+                <div class="info__wrap">
+                    <label class="info__title">Примечание</label>
+                    <input type="text" class="info__text info__text--xl" placeholder="ветеран, почётный гражданин, др."
+                        id="other">
+                </div>
+            </section>
+            <section>
+                <button type="submit" id="sendForm" class="camera__btn">Отправить данные</button>
+            </section>
+
+
+
+        </form>
+    </div>
+</body>
+
+</html>
