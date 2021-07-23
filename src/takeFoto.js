@@ -35,7 +35,7 @@
     let onBtn = document.querySelector('#onBtn');
     onBtn.addEventListener('click', startup);
 
-
+    //Функция запуска камеры
     function startup(e) {
         e.preventDefault();
         video = document.getElementById('video');
@@ -80,8 +80,9 @@
 
     }
 
-    let startbutton = document.getElementById('startbutton');
 
+    //Запуск камеры
+    let startbutton = document.getElementById('startbutton');
     startbutton.addEventListener('click', function (ev) {
         ev.preventDefault();
         if (video) {
@@ -92,24 +93,24 @@
         };
     });
 
-    // Fill the photo with an indication that none has been
-    // captured.
 
-    function clearphoto() {
+    //Ощистка окна вывода фото
+    function clearphoto(e) {
+        e.preventDefault();
         if (photo) {
             let context = canvas.getContext('2d');
             context.fillStyle = "#fff";
             context.fillRect(0, 0, canvas.width, canvas.height);
-
             let data = canvas.toDataURL('image/png');
             canvas.setAttribute('data', data);
             photo.setAttribute('src', data);
-
         } else {
             alertMessage('Сделайте фото');
         };
     };
 
+
+    //Запуск удаления сделанного фото 
     let clrBtn = document.querySelector('#clearbutton');
     clrBtn.addEventListener('click', clearphoto);
 
@@ -119,6 +120,9 @@
     // drawing that to the screen, we can change its size and/or apply
     // other changes before drawing it.
 
+
+
+    //Функция сделать фото
     function takepicture() {
         let context = canvas.getContext('2d');
         if (width && height) {
